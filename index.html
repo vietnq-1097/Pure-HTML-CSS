@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <!-- Logo -->
+        <img class="logo" width="150" src="./images/logo-dark.svg" alt="Logo" />
+        <!-- Navbar -->
+        <nav class="nav">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a class="nav__link nav__link--dark" href="/#">Work</a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link nav__link--dark" href="/#">Culture</a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link nav__link--dark" href="/#">Careers</a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link nav__link--dark nav__link--active" href="/#"
+                >Blog</a
+              >
+            </li>
+          </ul>
+          <button class="button button--sm button--primary ml-6">
+            Get in touch
+          </button>
+        </nav>
+      </div>
+    </header>
+    <!-- Thẻ này chỉ đơn giản là 1 thẻ có height bằng với header để bù đắp đi khoảng trống còn thiếu khi header sử dụng position: fixed -->
+    <div class="header-pseudo"></div>
+
+    <!-- Main -->
+    <main class="main">
+      <div class="container">
+        <div class="blog-list">
+          <!-- Blog list -->
+          <div class="row">
+            <!-- Blog type 1 -->
+            <!-- First row -->
+            <div class="col-12">
+              <article class="blog-card blog-card--primary">
+                <div class="row" style="--grid-spacing: 48px">
+                  <div class="col-8">
+                    <a href="#" class="blog-card__image">
+                      <div style="--aspect-ratio: 16 / 9">
+                        <img src="./images/blog-1.png" alt="blog card" />
+                      </div>
+                    </a>
+                  </div>
+                  <div class="col-4">
+                    <div class="blog-card__content">
+                      <div class="blog-card__info">
+                        <div class="blog-card__category">Design</div>
+                        <div class="dot" style="--dot-size: 4px"></div>
+                        <div class="blog-card__date">July 12, 2022</div>
+                      </div>
+                      <a href="#" class="blog-card__title">
+                        Building a Design System: What, How, and Why?
+                      </a>
+                      <p
+                        class="blog-card__description line-clamp"
+                        style="--line-clamp: 4"
+                      >
+                        And that's why Design Systems are part of our core
+                        strategy to build top-digital products. They work as a
+                        framework with a high impact on increasing the
+                        consistency and speed of software development. Let's see
+                        why and how Pixelmatters uses it.
+                      </p>
+                      <div class="blog-card__author">
+                        <div class="blog-card__author-image">
+                          <div style="--aspect-ratio: 1">
+                            <img src="./images/author-1.jpeg" alt="" />
+                          </div>
+                        </div>
+                        <div class="blog-card__author-info">
+                          <div class="blog-card__author-name">
+                            Claudio Santos
+                          </div>
+                          <div class="blog-card__author-position">
+                            Product Designer
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <!-- Blog type 2 -->
+          <!-- Second row -->
+          <div class="row" style="--grid-spacing: 48px">
+            <div class="col-6">
+              <article class="blog-card blog-card--secondary">
+                <a href="#" class="blog-card__image">
+                  <div style="--aspect-ratio: 16 / 9">
+                    <img src="./images/blog-2.png" alt="blog card" />
+                  </div>
+                </a>
+                <div class="blog-card__info">
+                  <div class="blog-card__category">Design</div>
+                  <div class="dot" style="--dot-size: 4px"></div>
+                  <div class="blog-card__date">June 29, 2022</div>
+                </div>
+                <a href="#" class="blog-card__title">
+                  The power of written communications in Product Design
+                </a>
+                <p class="blog-card__description line-clamp">
+                  Writing is an inherent habit in our processes, and one of our
+                  oldest practices is the Asynchronous Design Presentation.
+                  There are several ways to present your designs to your client,
+                  but this one is undoubtedly one of the most powerful and
+                  effective. I will talk about Pixelmatters’ writing processes,
+                  focusing on the Design subject.
+                </p>
+                <div class="blog-card__author">
+                  <div class="blog-card__author-image">
+                    <div style="--aspect-ratio: 1">
+                      <img src="./images/author-2.png" alt="" />
+                    </div>
+                  </div>
+                  <div class="blog-card__author-info">
+                    <div class="blog-card__author-name">Luísa Ferreira</div>
+                    <div class="blog-card__author-position">
+                      Product Designer
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-6">
+              <article class="blog-card blog-card--secondary">
+                <a href="#" class="blog-card__image">
+                  <div style="--aspect-ratio: 16 / 9">
+                    <img src="./images/blog-3.jpg" alt="blog card" />
+                  </div>
+                </a>
+                <div class="blog-card__info">
+                  <div class="blog-card__category">Culture</div>
+                  <div class="dot" style="--dot-size: 4px"></div>
+                  <div class="blog-card__date">June 13, 2022</div>
+                </div>
+                <a href="#" class="blog-card__title">
+                  Defining Pixelmatters' team cultural profile key traits
+                </a>
+                <p class="blog-card__description line-clamp">
+                  During the execution of our Organizational Model project, we
+                  felt the need to write down the desired Pixelmatters' team
+                  cultural profile key traits. And here they are.
+                </p>
+                <div class="blog-card__author">
+                  <div class="blog-card__author-image">
+                    <div style="--aspect-ratio: 1">
+                      <img src="./images/author-3.png" alt="" />
+                    </div>
+                  </div>
+                  <div class="blog-card__author-info">
+                    <div class="blog-card__author-name">André Oliveira</div>
+                    <div class="blog-card__author-position">
+                      Product Designer
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <!-- Third row -->
+          <div class="row" style="--grid-spacing: 24px">
+            <div class="col-4">
+              <article class="blog-card blog-card--secondary">
+                <a href="#" class="blog-card__image">
+                  <div style="--aspect-ratio: 16 / 9">
+                    <img src="./images/blog-4.png" alt="blog card" />
+                  </div>
+                </a>
+                <div class="blog-card__info">
+                  <div class="blog-card__category">Development</div>
+                  <div class="dot" style="--dot-size: 4px"></div>
+                  <div class="blog-card__date">June 9, 2022</div>
+                </div>
+                <a href="#" class="blog-card__title">
+                  How to develop an offline Front-End app with mock data
+                </a>
+                <p class="blog-card__description line-clamp">
+                  Have you ever wondered how to develop a front-end project
+                  without relying on the API being ready and available to fetch
+                  data from? In this tutorial, I’ll share different approaches
+                  to how you can do just that, starting by setting up a mock
+                  server and then showing how to integrate the mock server into
+                  multiple front-end environments — development, test, and
+                  component development environments. Here we go!
+                </p>
+                <div class="blog-card__author">
+                  <div class="blog-card__author-image">
+                    <div style="--aspect-ratio: 1">
+                      <img src="./images/author-4.png" alt="" />
+                    </div>
+                  </div>
+                  <div class="blog-card__author-info">
+                    <div class="blog-card__author-name">Rui Saraiva</div>
+                    <div class="blog-card__author-position">
+                      Front-End Developer
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-4">
+              <article class="blog-card blog-card--secondary">
+                <a href="#" class="blog-card__image">
+                  <div style="--aspect-ratio: 16 / 9">
+                    <img src="./images/blog-5.png" alt="blog card" />
+                  </div>
+                </a>
+                <div class="blog-card__info">
+                  <div class="blog-card__category">Product</div>
+                  <div class="dot" style="--dot-size: 4px"></div>
+                  <div class="blog-card__date">May 13, 2022</div>
+                </div>
+                <a href="#" class="blog-card__title">
+                  The process behind the creation of a fully customized
+                  interactive ROI calculator
+                </a>
+                <p class="blog-card__description line-clamp">
+                  Airkit and Pixelmatters created a wholly new customized
+                  interactive ROI calculator, a resource dedicated to helping
+                  companies lower their costs. On the other hand, it also
+                  changed how their Sales Team operates for the better.
+                </p>
+                <div class="blog-card__author">
+                  <div class="blog-card__author-image">
+                    <div style="--aspect-ratio: 1">
+                      <img src="./images/author-5.jpeg" alt="" />
+                    </div>
+                  </div>
+                  <div class="blog-card__author-info">
+                    <div class="blog-card__author-name">Catarina Ricca</div>
+                    <div class="blog-card__author-position">Product Owner</div>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-4">
+              <article class="blog-card blog-card--secondary">
+                <a href="#" class="blog-card__image">
+                  <div style="--aspect-ratio: 16 / 9">
+                    <img src="./images/blog-6.png" alt="blog card" />
+                  </div>
+                </a>
+                <div class="blog-card__info">
+                  <div class="blog-card__category">Product</div>
+                  <div class="dot" style="--dot-size: 4px"></div>
+                  <div class="blog-card__date">April 21, 2022</div>
+                </div>
+                <a href="#" class="blog-card__title">
+                  The Milestone Planner, a game-changer feature for Investors
+                  and Entrepreneurs
+                </a>
+                <p class="blog-card__description line-clamp">
+                  On one side, the Milestone Planner helps entrepreneurs give
+                  more visibility to their milestones’ progress, and on the
+                  other side, it allows investors to track measurable progress.
+                  Let’s dive into some of its creation details.
+                </p>
+                <div class="blog-card__author">
+                  <div class="blog-card__author-image">
+                    <div style="--aspect-ratio: 1">
+                      <img src="./images/author-5.jpeg" alt="" />
+                    </div>
+                  </div>
+                  <div class="blog-card__author-info">
+                    <div class="blog-card__author-name">Catarina Ricca</div>
+                    <div class="blog-card__author-position">Product Owner</div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <!-- Fourth row -->
+          <div class="row" style="--grid-spacing: 24px">
+            <div class="col-4">
+              <article class="blog-card blog-card--secondary">
+                <a href="#" class="blog-card__image">
+                  <div style="--aspect-ratio: 16 / 9">
+                    <img src="./images/blog-7.png" alt="blog card" />
+                  </div>
+                </a>
+                <div class="blog-card__info">
+                  <div class="blog-card__category">Product</div>
+                  <div class="dot" style="--dot-size: 4px"></div>
+                  <div class="blog-card__date">April 7, 2022</div>
+                </div>
+                <a href="#" class="blog-card__title">
+                  How can nonverbal communication improve relationships with
+                  clients?
+                </a>
+                <p class="blog-card__description line-clamp">
+                  Let's start this journey by doing a quick exercise: after
+                  speaking with someone, what do you remember more? The words
+                  that were said, or how the person made you feel?
+                </p>
+                <div class="blog-card__author">
+                  <div class="blog-card__author-image">
+                    <div style="--aspect-ratio: 1">
+                      <img src="./images/author-6.jpeg" alt="" />
+                    </div>
+                  </div>
+                  <div class="blog-card__author-info">
+                    <div class="blog-card__author-name">Marta Lopes</div>
+                    <div class="blog-card__author-position">Product Owner</div>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-4">
+              <article class="blog-card blog-card--secondary">
+                <a href="#" class="blog-card__image">
+                  <div style="--aspect-ratio: 16 / 9">
+                    <img src="./images/blog-4.png" alt="blog card" />
+                  </div>
+                </a>
+                <div class="blog-card__info">
+                  <div class="blog-card__category">Development</div>
+                  <div class="dot" style="--dot-size: 4px"></div>
+                  <div class="blog-card__date">March 18, 2022</div>
+                </div>
+                <a href="#" class="blog-card__title">
+                  How to set up a Front-End project with Vite, React, and
+                  TypeScript
+                </a>
+                <p class="blog-card__description line-clamp">
+                  Software development entails a lot of work like building new
+                  features, fixing bugs, infrastructure maintenance, keeping
+                  track of dependencies, phasing deprecated solutions out, etc.
+                  All of this works even without considering product, people, or
+                  operations.
+                </p>
+                <div class="blog-card__author">
+                  <div class="blog-card__author-image">
+                    <div style="--aspect-ratio: 1">
+                      <img src="./images/author-4.png" alt="" />
+                    </div>
+                  </div>
+                  <div class="blog-card__author-info">
+                    <div class="blog-card__author-name">Rui Saraiva</div>
+                    <div class="blog-card__author-position">
+                      Front-End Developer
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-4">
+              <article class="blog-card blog-card--secondary">
+                <a href="#" class="blog-card__image">
+                  <div style="--aspect-ratio: 16 / 9">
+                    <img src="./images/blog-7.png" alt="blog card" />
+                  </div>
+                </a>
+                <div class="blog-card__info">
+                  <div class="blog-card__category">Product</div>
+                  <div class="dot" style="--dot-size: 4px"></div>
+                  <div class="blog-card__date">March 8, 2022</div>
+                </div>
+                <a href="#" class="blog-card__title">
+                  Can a kindergarten teacher and a Product Owner be the same
+                  person?
+                </a>
+                <p class="blog-card__description line-clamp">
+                  I fell into product management accidentally, and my story
+                  starts with a shot of luck and opportunity. Long story short,
+                  while I was working in the education field, I received an
+                  unexpected invitation to become a Data Reviewer in one company
+                  creating a data-aggregator platform. Over time, I moved to
+                  Business Analyst and later to Product Owner.
+                </p>
+                <div class="blog-card__author">
+                  <div class="blog-card__author-image">
+                    <div style="--aspect-ratio: 1">
+                      <img src="./images/author-6.jpeg" alt="" />
+                    </div>
+                  </div>
+                  <div class="blog-card__author-info">
+                    <div class="blog-card__author-name">Marta Lopes</div>
+                    <div class="blog-card__author-position">Product Owner</div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+        <!-- Pagination -->
+        <div class="pagination">
+          <div class="pagination__count">1 / 12</div>
+          <button class="button button--md button--secondary">
+            Next posts
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer__top">
+        <div class="container">
+          <!-- CTA - Call to action -->
+          <div class="cta">
+            <div class="cta__content">
+              <h2 class="cta__heading">Because, every pixel matters.</h2>
+              <button class="button button__arrow button--md button--tertiary">
+                Let's talk
+              </button>
+            </div>
+          </div>
+          <!-- Navigation -->
+          <div class="footer__wrapper">
+            <div class="footer__nav">
+              <!-- Logo -->
+              <img
+                class="logo"
+                width="150"
+                src="./images/logo-light.svg"
+                alt="Logo"
+              />
+              <!-- Navbar -->
+              <nav class="nav">
+                <ul class="nav__list">
+                  <li class="nav__item">
+                    <a href="#" class="nav__link nav__link--light">Work</a>
+                  </li>
+                  <li class="nav__item">
+                    <a href="#" class="nav__link nav__link--light">Culture</a>
+                  </li>
+                  <li class="nav__item">
+                    <a href="#" class="nav__link nav__link--light">Careers</a>
+                  </li>
+                  <li class="nav__item">
+                    <a href="#" class="nav__link nav__link--light">Blog</a>
+                  </li>
+                  <li class="nav__item">
+                    <a href="#" class="nav__link nav__link--light"
+                      >Brandmatters</a
+                    >
+                  </li>
+                  <li class="nav__item">
+                    <a href="#" class="nav__link nav__link--light">Goodies</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <!-- Socials network -->
+            <nav class="nav">
+              <ul class="nav__list nav__list--sm">
+                <li class="nav__item">
+                  <a href="#" class="nav__link nav__link--light">
+                    <img src="./images/icon-dribbble.svg" alt="" />
+                  </a>
+                </li>
+                <li class="nav__item">
+                  <a href="#" class="nav__link nav__link--light">
+                    <img src="./images/icon-behance.svg" alt="" />
+                  </a>
+                </li>
+                <li class="nav__item">
+                  <a href="#" class="nav__link nav__link--light">
+                    <img src="./images/icon-instagram.svg" alt="" />
+                  </a>
+                </li>
+                <li class="nav__item">
+                  <a href="#" class="nav__link nav__link--light">
+                    <img src="./images/icon-facebook.svg" alt="" />
+                  </a>
+                </li>
+                <li class="nav__item">
+                  <a href="#" class="nav__link nav__link--light">
+                    <img src="./images/icon-twitter.svg" alt="" />
+                  </a>
+                </li>
+                <li class="nav__item">
+                  <a href="#" class="nav__link nav__link--light">
+                    <img src="./images/icon-linkedin.svg" alt="" />
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <!-- Terms & copyright -->
+      <div class="footer__bottom">
+        <div class="container">
+          <div class="footer__wrapper">
+            <nav class="nav">
+              <ul class="nav__list nav__list--sm">
+                <li class="nav__item">
+                  <a class="nav__link nav__link--gray" href="/#"
+                    >Privacy Policy</a
+                  >
+                </li>
+                <li class="nav__item">
+                  <div class="dot" style="--dot-size: 4px"></div>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link nav__link--gray" href="/#">
+                    Cookie Policy
+                  </a>
+                </li>
+                <li class="nav__item">
+                  <div class="dot" style="--dot-size: 4px"></div>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link nav__link--gray" href="/#">Contact us</a>
+                </li>
+              </ul>
+            </nav>
+            <p class="text-xs text-gray-400 font-medium">
+              &copy; 2022 Pixelmatters
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,976 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* -----CSS3 variables----- nơi khai báo các biến cần sử dụng */
+:root {
+  --black: #0c0c10;
+  --white: #ffffff;
+  --blue: #0063ff;
+  --orange: #ff6333;
+  /* tên-màu-100 -> tên-màu-900: dùng để biểu thị độ đậm nhạt cho 1 màu, 900 là màu đậm nhất  */
+  --gray-100: #f0f1f2;
+  --gray-400: #7f7f82;
+  --gray-500: #5b6066;
+  --gray-700: #2b3138;
+  --gray-800: #111314;
+
+  --shadow-lg: 0 3px 4px 0 rgba(0, 0, 0, 0.14);
+
+  --fs-text-xs: 0.75rem;
+  --fs-text-sm: 0.875rem;
+  --fs-text-md: 1rem;
+  --fs-text-lg: 1.125rem;
+  --fs-text-xl: 1.25rem;
+  --fs-display-xs: 1.5rem;
+  --fs-display-sm: 1.875rem;
+  --fs-display-md: 2.25rem;
+  --fs-display-lg: 3rem;
+  --fs-display-xl: 3.75rem;
+
+  --lh-text-xs: 1.125rem;
+  --lh-text-sm: 1.25rem;
+  --lh-text-md: 1.5rem;
+  --lh-text-lg: 1.75rem;
+  --lh-text-xl: 1.875rem;
+  --lh-display-xs: 2rem;
+  --lh-display-sm: 2.375rem;
+  --lh-display-md: 2.75rem;
+  --lh-display-lg: 3.75rem;
+  --lh-display-xl: 4.625rem;
+
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  --ff-inter: 'Inter', sans-serif;
+
+  --z-negative: -1;
+  --z-elevate: 1;
+  --z-drawer: 200;
+  --z-sticky: 300;
+  --z-dropdown: 300;
+  --z-modal: 500;
+  --z-popover: 500;
+  --z-maximum: 9999;
+
+  --header-height: 70px;
+  --logo-width: 150px;
+}
+
+/* -----Global styles----- nơi để reset CSS hoặc chứa các style chung nhất cho các thẻ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: var(--white);
+  color: var(--gray-700);
+  font-family: var(--ff-inter);
+  font-size: var(--fs-text-md);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-text-md);
+}
+
+main {
+  flex-grow: 1;
+  margin-bottom: 96px;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: unset;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+}
+
+/* Aspect ratio - https://css-tricks.com/aspect-ratio-boxes/ */
+[style*='--aspect-ratio'] > :first-child {
+  width: 100%;
+}
+
+[style*='--aspect-ratio'] > img {
+  height: auto;
+  object-fit: cover;
+}
+
+@supports (--custom: property) {
+  [style*='--aspect-ratio'] {
+    position: relative;
+    overflow: hidden;
+  }
+
+  [style*='--aspect-ratio']::before {
+    content: '';
+    display: block;
+    padding-bottom: calc(100% / (var(--aspect-ratio)));
+  }
+
+  [style*='--aspect-ratio'] > :first-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+  }
+}
+
+/* -----Utility styles----- */
+.container {
+  max-width: var(--site-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+/* Line clamp - https://css-tricks.com/almanac/properties/l/line-clamp/ */
+.line-clamp {
+  /* Khai báo biến mặc định */
+  --line-clamp: 3;
+  display: -webkit-box;
+  -webkit-line-clamp: var(--line-clamp);
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.ml-4 {
+  margin-left: 1rem;
+}
+
+.mr-4 {
+  margin-right: 1rem;
+}
+
+.mt-6 {
+  margin-top: 1.5rem;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
+.ml-6 {
+  margin-left: 1.5rem;
+}
+
+.mr-6 {
+  margin-right: 1.5rem;
+}
+
+.text-white {
+  color: var(--white);
+}
+
+.text-black {
+  color: var(--black);
+}
+
+.text-blue {
+  color: var(--blue);
+}
+
+.text-orange {
+  color: var(--orange);
+}
+
+.text-gray-100 {
+  color: var(--gray-100);
+}
+
+.text-gray-400 {
+  color: var(--gray-400);
+}
+
+.text-gray-500 {
+  color: var(--gray-500);
+}
+
+.text-gray-700 {
+  color: var(--gray-700);
+}
+
+.text-gray-800 {
+  color: var(--gray-800);
+}
+
+.text-xs {
+  font-size: var(--fs-text-xs);
+  line-height: var(--lh-text-xs);
+}
+
+.text-sm {
+  font-size: var(--fs-text-sm);
+  line-height: var(--lh-text-sm);
+}
+
+.text-md {
+  font-size: var(--fs-text-md);
+  line-height: var(--lh-text-md);
+}
+
+.text-lg {
+  font-size: var(--fs-text-lg);
+  line-height: var(--lh-text-lg);
+}
+
+.text-xl {
+  font-size: var(--fs-text-xl);
+  line-height: var(--lh-text-xl);
+}
+
+.text-display-xs {
+  font-size: var(--fs-display-xs);
+  line-height: var(--lh-display-xs);
+}
+
+.text-display-sm {
+  font-size: var(--fs-display-sm);
+  line-height: var(--lh-display-sm);
+}
+
+.text-display-md {
+  font-size: var(--fs-display-md);
+  line-height: var(--lh-display-md);
+}
+
+.text-display-lg {
+  font-size: var(--fs-display-lg);
+  line-height: var(--lh-display-lg);
+}
+
+.text-display-xl {
+  font-size: var(--fs-display-xl);
+  line-height: var(--lh-display-xl);
+}
+
+.font-light {
+  font-weight: var(--fw-light);
+}
+
+.font-regular {
+  font-weight: var(--fw-regular);
+}
+
+.font-medium {
+  font-weight: var(--fw-medium);
+}
+
+.font-semibold {
+  font-weight: var(--fw-semibold);
+}
+
+.font-bold {
+  font-weight: var(--fw-bold);
+}
+
+/* Grid system */
+.row {
+  --grid-spacing: 16px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: calc(0px - var(--grid-spacing) / 2);
+}
+
+[class^='col'] {
+  flex: 1 1 0%;
+  padding: calc(var(--grid-spacing) / 2);
+}
+
+.col-1 {
+  flex: 0 0 8.33333%;
+  max-width: 8.33333%;
+}
+
+.col-2 {
+  flex: 0 0 16.66667%;
+  max-width: 16.66667%;
+}
+
+.col-3 {
+  flex: 0 0 25%;
+  max-width: 25%;
+}
+
+.col-4 {
+  flex: 0 0 33.33333%;
+  max-width: 33.33333%;
+}
+
+.col-5 {
+  flex: 0 0 41.66667%;
+  max-width: 41.66667%;
+}
+
+.col-6 {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+.col-7 {
+  flex: 0 0 58.33333%;
+  max-width: 58.33333%;
+}
+
+.col-8 {
+  flex: 0 0 66.66667%;
+  max-width: 66.66667%;
+}
+
+.col-9 {
+  flex: 0 0 75%;
+  max-width: 75%;
+}
+
+.col-10 {
+  flex: 0 0 83.33333%;
+  max-width: 83.33333%;
+}
+
+.col-11 {
+  flex: 0 0 91.66667%;
+  max-width: 91.66667%;
+}
+
+.col-12 {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+@media screen and (min-width: 536px) {
+  .col-sm-1 {
+    flex: 0 0 8.33333%;
+    max-width: 8.33333%;
+  }
+
+  .col-sm-2 {
+    flex: 0 0 16.66667%;
+    max-width: 16.66667%;
+  }
+
+  .col-sm-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+
+  .col-sm-4 {
+    flex: 0 0 33.33333%;
+    max-width: 33.33333%;
+  }
+
+  .col-sm-5 {
+    flex: 0 0 41.66667%;
+    max-width: 41.66667%;
+  }
+
+  .col-sm-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .col-sm-7 {
+    flex: 0 0 58.33333%;
+    max-width: 58.33333%;
+  }
+
+  .col-sm-8 {
+    flex: 0 0 66.66667%;
+    max-width: 66.66667%;
+  }
+
+  .col-sm-9 {
+    flex: 0 0 75%;
+    max-width: 75%;
+  }
+
+  .col-sm-10 {
+    flex: 0 0 83.33333%;
+    max-width: 83.33333%;
+  }
+
+  .col-sm-11 {
+    flex: 0 0 91.66667%;
+    max-width: 91.66667%;
+  }
+
+  .col-sm-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .col-md-1 {
+    flex: 0 0 8.33333%;
+    max-width: 8.33333%;
+  }
+
+  .col-md-2 {
+    flex: 0 0 16.66667%;
+    max-width: 16.66667%;
+  }
+
+  .col-md-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+
+  .col-md-4 {
+    flex: 0 0 33.33333%;
+    max-width: 33.33333%;
+  }
+
+  .col-md-5 {
+    flex: 0 0 41.66667%;
+    max-width: 41.66667%;
+  }
+
+  .col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .col-md-7 {
+    flex: 0 0 58.33333%;
+    max-width: 58.33333%;
+  }
+
+  .col-md-8 {
+    flex: 0 0 66.66667%;
+    max-width: 66.66667%;
+  }
+
+  .col-md-9 {
+    flex: 0 0 75%;
+    max-width: 75%;
+  }
+
+  .col-md-10 {
+    flex: 0 0 83.33333%;
+    max-width: 83.33333%;
+  }
+
+  .col-md-11 {
+    flex: 0 0 91.66667%;
+    max-width: 91.66667%;
+  }
+
+  .col-md-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .col-lg-1 {
+    flex: 0 0 8.33333%;
+    max-width: 8.33333%;
+  }
+
+  .col-lg-2 {
+    flex: 0 0 16.66667%;
+    max-width: 16.66667%;
+  }
+
+  .col-lg-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+
+  .col-lg-4 {
+    flex: 0 0 33.33333%;
+    max-width: 33.33333%;
+  }
+
+  .col-lg-5 {
+    flex: 0 0 41.66667%;
+    max-width: 41.66667%;
+  }
+
+  .col-lg-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .col-lg-7 {
+    flex: 0 0 58.33333%;
+    max-width: 58.33333%;
+  }
+
+  .col-lg-8 {
+    flex: 0 0 66.66667%;
+    max-width: 66.66667%;
+  }
+
+  .col-lg-9 {
+    flex: 0 0 75%;
+    max-width: 75%;
+  }
+
+  .col-lg-10 {
+    flex: 0 0 83.33333%;
+    max-width: 83.33333%;
+  }
+
+  .col-lg-11 {
+    flex: 0 0 91.66667%;
+    max-width: 91.66667%;
+  }
+
+  .col-lg-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .col-xl-1 {
+    flex: 0 0 8.33333%;
+    max-width: 8.33333%;
+  }
+
+  .col-xl-2 {
+    flex: 0 0 16.66667%;
+    max-width: 16.66667%;
+  }
+
+  .col-xl-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+
+  .col-xl-4 {
+    flex: 0 0 33.33333%;
+    max-width: 33.33333%;
+  }
+
+  .col-xl-5 {
+    flex: 0 0 41.66667%;
+    max-width: 41.66667%;
+  }
+
+  .col-xl-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .col-xl-7 {
+    flex: 0 0 58.33333%;
+    max-width: 58.33333%;
+  }
+
+  .col-xl-8 {
+    flex: 0 0 66.66667%;
+    max-width: 66.66667%;
+  }
+
+  .col-xl-9 {
+    flex: 0 0 75%;
+    max-width: 75%;
+  }
+
+  .col-xl-10 {
+    flex: 0 0 83.33333%;
+    max-width: 83.33333%;
+  }
+
+  .col-xl-11 {
+    flex: 0 0 91.66667%;
+    max-width: 91.66667%;
+  }
+
+  .col-xl-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+/* -----Component styles----- nơi để chứa các style cụ thể cho 1 thứ gì đó, những style component có thể được sử dụng ở nhiều trang khác nhau */
+
+/* Header */
+.header {
+  position: fixed;
+  z-index: var(--z-sticky);
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-height);
+  background-color: var(--white);
+  padding-top: 16px;
+  padding-bottom: 16px;
+  box-shadow: var(--shadow-lg);
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-pseudo {
+  height: var(--header-height);
+}
+
+/* Logo */
+.logo {
+  width: var(--logo-width);
+}
+
+/* Navbar */
+.nav {
+  display: flex;
+}
+
+.nav__list {
+  display: flex;
+  align-items: center;
+}
+
+.nav__list--sm .nav__item {
+  font-size: var(--fs-text-xs);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-text-xs);
+}
+
+.nav__list--sm .nav__item + .nav__item {
+  margin-left: 12px;
+}
+
+.nav__item + .nav__item {
+  margin-left: 24px;
+}
+
+.nav__link {
+  position: relative;
+}
+
+.nav__link::after {
+  content: '';
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  width: 0;
+  /* currentColor: sẽ lấy màu dựa theo property "color: tên-màu" hiện tại của thẻ, ví dụ ở thẻ này có 1 property là color: orange, thì lúc này currentColor sẽ là orange */
+  border-bottom: 1px solid currentColor;
+  transition: width 0.3s ease-in-out;
+}
+
+.nav__link:hover::after {
+  width: 100%;
+}
+
+.nav__link--dark {
+  color: var(--black);
+}
+
+.nav__link--light {
+  color: var(--white);
+}
+
+.nav__link--gray {
+  color: var(--gray-500);
+}
+
+.nav__link--active {
+  font-weight: var(--fw-semibold);
+}
+
+.nav__link--active::after {
+  width: 100%;
+}
+
+/* Button */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-size: var(--fs-text-sm);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-text-sm);
+  border-radius: 25px;
+  cursor: pointer;
+  border-width: 1px;
+  border-style: solid;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.button__arrow::after {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-right: -8px;
+  background-image: url('./images/arrow.svg');
+  transition: transform 0.3s ease-in-out;
+}
+
+.button__arrow:hover::after {
+  transform: translateX(2px);
+}
+
+.button:hover {
+  opacity: 0.85;
+}
+
+.button--sm {
+  padding: 8px 12px;
+}
+
+.button--md {
+  padding: 12px 16px;
+}
+
+.button--primary {
+  background-color: var(--black);
+  color: var(--white);
+  border-color: var(--black);
+}
+
+.button--secondary {
+  background-color: var(--white);
+  color: var(--gray-700);
+  border-color: var(--gray-100);
+}
+
+.button--secondary:hover {
+  border-color: var(--gray-500);
+}
+
+.button--tertiary {
+  background-color: var(--blue);
+  color: var(--white);
+  border-color: var(--blue);
+}
+
+/* Dot */
+.dot {
+  width: var(--dot-size);
+  height: var(--dot-size);
+  border-radius: 50%;
+  background-color: var(--gray-400);
+}
+
+/* Blog card */
+.blog-card {
+  display: flex;
+  align-items: stretch;
+  height: 100%;
+}
+
+.blog-card__image {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.blog-card__content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.blog-card__info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--gray-500);
+}
+
+.blog-card__category {
+  font-weight: var(--fw-medium);
+}
+
+.blog-card__title {
+  font-size: var(--fs-display-xs);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-display-xs);
+  transition: color 0.25s ease-in-out;
+}
+
+.blog-card__title:hover {
+  color: var(--orange);
+}
+
+.blog-card__description {
+  color: var(--gray-500);
+  margin-bottom: 8px;
+}
+
+.blog-card__author {
+  display: flex;
+  align-items: center;
+  margin-top: auto;
+  gap: 12px;
+}
+
+.blog-card__author-image {
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.blog-card__author-name {
+  font-size: var(--fs-text-sm);
+  font-weight: var(--fw-semibold);
+}
+
+.blog-card__author-position {
+  color: var(--gray-500);
+  font-size: var(--fs-text-sm);
+}
+
+.blog-card--primary {
+  flex-direction: row;
+}
+
+.blog-card--primary .blog-card__title {
+  margin-top: 16px;
+}
+
+.blog-card--primary .blog-card__description {
+  margin-top: 16px;
+  font-size: var(--fs-text-lg);
+  line-height: var(--lh-display-xs);
+}
+
+.blog-card--primary .blog-card__author-image {
+  width: 48px;
+}
+
+.blog-card--secondary {
+  flex-direction: column;
+}
+
+.blog-card--secondary .blog-card__info {
+  margin-top: 12px;
+}
+
+.blog-card--secondary .blog-card__title {
+  margin-top: 8px;
+}
+
+.blog-card--secondary .blog-card__description {
+  margin-top: 8px;
+}
+
+.blog-card--secondary .blog-card__author-image {
+  width: 36px;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination__count {
+  margin-right: 12px;
+}
+
+/* Footer */
+.footer {
+  color: var(--white);
+}
+
+.footer__wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer__nav {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  padding-top: 36px;
+  padding-bottom: 36px;
+}
+
+.footer__top {
+  background-color: var(--gray-800);
+}
+
+.footer__bottom {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: var(--black);
+}
+
+/* -----Layout/Section styles----- nơi để chứa các style của 1 Layout/Section cho 1 page cụ thể nào đó không liên quan tới nhau. Ví dụ trang Homepage thì có phần Introduction, trang About có phần About team */
+
+/* Blog list */
+.blog-list {
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+.blog-list .row {
+  margin-bottom: 24px;
+}
+
+/* CTA */
+.cta {
+  padding-top: 48px;
+  padding-bottom: 72px;
+  border-bottom: 1px solid var(--gray-400);
+}
+
+.cta__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cta__heading {
+  font-size: 42px;
+  font-weight: var(--fw-bold);
+  margin-right: 24px;
+}
+
+/* -----Responsive styles----- nơi để chứa các style Responsive */
+@media screen and (min-width: 600px) {
+  :root {
+    --site-width: 600px;
+  }
+}
+
+@media screen and (min-width: 728px) {
+  :root {
+    --site-width: 728px;
+  }
+}
+
+@media screen and (min-width: 984px) {
+  :root {
+    --site-width: 984px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  :root {
+    --site-width: 1200px;
+  }
+}
